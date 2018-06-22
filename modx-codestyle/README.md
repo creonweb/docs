@@ -81,6 +81,34 @@
 ![Риcунок 3](/img/pic3.png)
 ###### Рисунок 3. Типичные шаблоны
 
+### Типовая разметка базового шаблона
+```php
+<!doctype html>
+<html>
+    {block 'HEAD'}
+        {include 'file:chunks/common/head.tpl'}
+    {/block}
+    <body>
+        {block 'HEADER'}
+            {include 'file:chunks/common/header.tpl'}
+        {/block}
+        {block 'BREADCRUMBS'}
+            {*include 'file:chunks/common/breadcrumbs.tpl'*}
+        {/block}        
+        {block 'CONTENT'}
+        {/block}
+        {block 'FOOTER'}
+            {include 'file:chunks/common/footer.tpl'}
+        {/block}
+        {block 'MODALS'}
+            {include 'file:chunks/modals/modal.login.tpl'}
+        {/block}
+        {block 'SCRIPTS'}
+            {*include 'file:chunks/common/scripts.tpl'*}
+        {/block}
+    </body>
+</html>
+```
 
 
 
