@@ -4,3 +4,37 @@
 ```php
 <a class="nav__phone-first" href="tel:{'phone1'|config|ereplace: '/[^0-9]/' : ''}">{'phone1'|config}</a>
 ```
+
+##### SEO Breadcrumbs
+
+```php
+{'pdoCrumbs' | snippet : [
+    'showHome' => 1,
+    'outputSeparator' => '<li> / </li>',
+    'tplWrapper' => '@INLINE <ul itemscope="" itemtype="http://schema.org/BreadcrumbList" id="breadcrumbs">{$output}</ul>',
+    'tpl' => '@INLINE
+        <li><span itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+             <a title="{$menutitle}" itemprop="item" href="{$link}"><span itemprop="name">{$menutitle}</span><meta itemprop="position" content="{$idx}"></a>
+        </span></li>',
+    'tplCurrent' => '@INLINE
+        <li><span itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+        <span itemprop="name">{$menutitle}</span><meta itemprop="position" content="{$idx}">
+    </span></li>'
+]}
+```
+
+##### Типичный вызов AjaxForm
+
+```php
+{$_modx->runSnippet('!AjaxForm',[
+    'form' => '@FILE:chunks/forms/callback.form.tpl',
+    'hooks' => 'spam,email,FormItSaveForm',
+    'emailTpl' => 'callbck.form.email.tpl',
+    'emailSubject' => ('mailSubject'|config),
+    'emailTo' => ('siteMail'|config),
+    'emailFrom' => ('emailFrom'|config),
+    'validate' => 'name:required,email:required',
+    'validationErrorMessage' =>'<h4>В форме содержатся ошибки! Заполните, пожалуйста, требуемые поля</h4>',
+    'successMessage' => '<h4>Заявка отправлена. Скоро с вами свяжется наш менеджер!</h4>'
+])}
+```
