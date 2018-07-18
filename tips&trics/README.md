@@ -38,3 +38,13 @@
     'successMessage' => '<h4>Заявка отправлена. Скоро с вами свяжется наш менеджер!</h4>'
 ])}
 ```
+
+#### Поменять стартовый экран на экран MiniShop2 или Tickets
+
+заходим в настройки системы, далее в фильтре по ключу отыскиваем 2 значения:
+
++ welcome_action меняем с welcome на mgr/orders
++ welcome_namespace с core на minishop2
+##### Tickets
++ welcome_action меняем с welcome на home
++ welcome_namespace с core на tickets
