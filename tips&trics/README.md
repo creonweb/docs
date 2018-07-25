@@ -48,3 +48,27 @@
 ##### Tickets
 + welcome_action меняем с welcome на home
 + welcome_namespace с core на tickets
+
+
+#### Выбрать соседние товары с превью
+
+```php
+{$_modx->runSnippet('pdoNeighbors',[
+    'class' => 'modResource',
+    'leftJoin' => [
+        'Image' => [
+            'class' => 'msProductFile',
+            'on' => 'modResource.id = Image.product_id AND Image.parent = 0',
+        ],
+        'Thumb' => [
+            'class' => 'msProductFile',
+            'on' => 'Image.id = Thumb.parent AND Thumb.path LIKE "%medium%"',
+        ]
+    ],
+    'select' => [
+        'modResource' => '*',
+        'Image' => 'Image.url as image',
+        'Thumb' => 'Thumb.url as thumb',
+    ],
+])}
+```
