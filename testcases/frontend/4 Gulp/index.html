@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>Gulp test case</title>
+    <meta charset="utf-8">
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header" style="background-color:#269cd8;height:100px;padding:20px;">
+        <img class="header--img" src="https://blog.creonagency.ru/assets/templates/default/img/logo.png" alt="">
+    </div>
+    <h1 class="heading">Приветствуем на тестовом задании!</h1>
+    <p class="text">Выполните следующие задачи для выполнения задания:</p>
+    <ul class="task-items">
+        <li class="task-item">
+           Возьмите ваш готовый код из задания 2 (БЭМ) и совместите с готовым кодом из задания 3 (JS) так, чтобы всё работало.
+        </li>
+        <li>Для всех слоев задайте рамки, border-radius, отступы, размеры шрифтов и еще какой-нибудь красоты</li>
+        <li class="task-item">
+            Установите Gulp и соберите простую сборку с тремя тасками: sass, js, build
+        </li>
+        <li class="task-item">
+            Таск Sass должен компилировать sass файлы стилей (которые вы создали во втором шаге) в один сжатый файл app.min.css. Файлов должно быть по количеству блоков в понятии БЭМ и именоваться точно так же + один sass файл с переменными (задайте единый цвет рамок и единый отступ внутри всех блоков)
+        </li>
+        <li class="task-item">
+           Таск JS склеивать библиотеку jQuery (скачайте и установите в сборку через npm) и ваш объект App и минифицировать всё это в файл app.min.js
+        </li>
+        <li class="task-item">
+            Таск Build должен по очереди запускать таски sass и js 
+        </li>
+        <li class="task-item">
+           Сборка должна работать и выдавать рабочую HTML страницу с активным JS содержимым
+        </li>
+    </ul>
+</body>
+
+</html>
