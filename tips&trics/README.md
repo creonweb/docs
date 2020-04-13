@@ -83,3 +83,16 @@
 $phone = preg_replace('/[^\d\+]+/', '', $mobilephone);
 $phone = preg_replace('/^8([\d]{10})$/', '+7$1', $phone);
 ```
+
+#### Office авторизовать админа в контексте WEB
+Плагин на событие OnWebPageInit
+
+и код
+```php
+<?php
+if ($modx->event->name == 'OnWebPageInit') {
+	if ($modx->user->hasSessionContext('mgr') && !$modx->user->hasSessionContext($modx->context->key)) {
+		$modx->user->addSessionContext($modx->context->key);
+	}
+}
+```
