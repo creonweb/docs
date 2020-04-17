@@ -96,3 +96,16 @@ if ($modx->event->name == 'OnWebPageInit') {
 	}
 }
 ```
+
+#### TinyMCE для introtext
+Создаем плагин с текстом:
+
+```php
+<?php
+$modx->regClientStartupHTMLBlock('<script>Ext.onReady(function() {
+if(MODx.loadRTE) MODx.loadRTE("modx-resource-introtext");
+});</script>');
+```
+
+В списке событий найти событие OnDocFormRender и поставить на против него галочку
+После сохранения плагина поле introtext будет представлено в виде редактора TinyMCE
